@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "ténati highlighter",
+  "version": "0.1.0",
+  "description": "Quick modern text highlighting with pastel colors via an inline toolbar.",
+  "icons": {
+    "16": "layer1.svg",
+    "32": "layer1.svg",
+    "48": "layer1.svg",
+    "128": "layer1.svg"
+  },
+  "permissions": ["tabs", "storage"],
+  "action": {
+    "default_title": "ténati highlights",
+    "default_icon": {
+      "16": "layer1.svg",
+      "32": "layer1.svg"
+    },
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*",
+        "file://*/*"
+      ],
+      "js": ["scripts/highlighter.js"],
+      "css": ["styles/panel.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

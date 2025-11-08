@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ténati highlights</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup">
+      <header class="popup-header">
+        <div class="popup-heading">
+          <h1>Highlights</h1>
+          <p id="popup-url" class="popup-url"></p>
+        </div>
+        <button id="clearButton" class="popup-clear" type="button" disabled>Clear all</button>
+      </header>
+      <div class="popup-language">
+        <label id="languageLabel" for="languageSelect">Language</label>
+        <select id="languageSelect" class="popup-language-select">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+        </select>
+      </div>
+      <div class="popup-export">
+        <button id="exportHighlightsButton" class="popup-export-button" type="button" disabled>
+          Export highlighted text (.md)
+        </button>
+        <button id="exportPageButton" class="popup-export-button" type="button" disabled>
+          Export full page (PDF)
+        </button>
+      </div>
+      <div id="status" class="popup-status">Loading…</div>
+      <ul id="highlightList" class="popup-list" hidden></ul>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
