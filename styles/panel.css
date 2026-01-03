@@ -1,14 +1,16 @@
+/* Tenati Highlighter - Content Script Styles */
+
 .tenati-root {
   position: absolute;
-  z-index: 2147483645;
+  z-index: 2147483644;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  font-family: 'Inter', 'SF Pro Text', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-6px);
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
 .tenati-root.tenati-visible {
@@ -17,13 +19,62 @@
   transform: translateY(0);
 }
 
+.tenati-root *,
+.tenati-root *::before,
+.tenati-root *::after {
+  box-sizing: border-box;
+}
+
+/* Floating Action Button */
+.tenati-fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 0.75rem;
+  min-height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: #1a1a1f;
+  color: #f4f4f7;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.tenati-fab:hover {
+  background: #222228;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.tenati-fab:focus-visible {
+  outline: 2px solid #7c6aff;
+  outline-offset: 2px;
+}
+
+.tenati-fab-icon {
+  display: flex;
+  width: 1rem;
+  height: 1rem;
+  color: #a0a0b0;
+}
+
+.tenati-fab-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Panel Flyout */
 .tenati-panel-flyout {
   position: absolute;
-  z-index: 2147483644;
+  z-index: 2147483645;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-6px);
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
 .tenati-panel-flyout.tenati-panel-open {
@@ -32,63 +83,16 @@
   transform: translateY(0);
 }
 
-.tenati-fab {
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-  background: rgba(10, 11, 17, 0.78);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.32rem 0.75rem 0.32rem 0.45rem;
-  gap: 0.45rem;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  backdrop-filter: blur(16px);
-  color: rgba(245, 247, 255, 0.9);
-  font-size: 1rem;
-  font-weight: 600;
-  min-height: 42px;
-  width: fit-content;
-}
-
-.tenati-fab:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.6);
-  outline-offset: 2px;
-}
-
-.tenati-fab:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(1, 2, 8, 0.65);
-}
-
-.tenati-fab-icon {
-  width: 1rem;
-  height: 1rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(245, 247, 255, 0.92);
-}
-
-.tenati-fab-label {
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
 .tenati-panel {
-  min-width: 240px;
+  min-width: 220px;
   padding: 1rem;
-  border-radius: 1rem;
-  background: rgba(18, 20, 27, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 22px 48px rgba(4, 5, 10, 0.5);
-  backdrop-filter: blur(22px);
-  color: #f5f7ff;
+  border-radius: 12px;
+  background: #1a1a1f;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  color: #f4f4f7;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.75rem;
 }
 
 .tenati-panel-header {
@@ -96,104 +100,84 @@
 }
 
 .tenati-panel-title {
-  font-size: 0.82rem;
-  font-weight: 600;
   display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #f4f4f7;
 }
 
 .tenati-panel-subtitle {
   font-size: 0.7rem;
-  color: rgba(245, 247, 255, 0.6);
+  color: #6b6b7a;
 }
 
 .tenati-panel-hint {
-  font-size: 0.68rem;
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px dashed rgba(255, 255, 255, 0.25);
-  padding: 0.4rem 0.55rem;
-  border-radius: 0.8rem;
-  transition: opacity 0.18s ease;
-  backdrop-filter: blur(10px);
+  font-size: 0.7rem;
+  color: #a0a0b0;
+  background: rgba(124, 106, 255, 0.1);
+  border: 1px dashed rgba(124, 106, 255, 0.3);
+  padding: 0.5rem;
+  border-radius: 8px;
 }
 
 .tenati-panel-flyout:not(.tenati-editing) .tenati-panel-hint {
   display: none;
 }
 
+/* Color Grid */
 .tenati-color-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.45rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
 }
 
 .tenati-color-chip {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.45rem 0.5rem;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
-  color: inherit;
-  font-size: 0.72rem;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #f4f4f7;
+  font-size: 0.7rem;
   cursor: pointer;
-  transition: border 0.15s ease, background 0.15s ease, transform 0.15s ease;
-  backdrop-filter: blur(12px);
+  transition: all 0.15s ease;
 }
 
 .tenati-color-chip:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.25);
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .tenati-color-chip:focus-visible {
-  outline: 2px solid #8ec5ff;
+  outline: 2px solid #7c6aff;
   outline-offset: 2px;
 }
 
 .tenati-color-dot {
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  border: 2px solid rgba(255, 255, 255, 0.65);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
   flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
-.tenati-highlight {
-  border-radius: 0.25rem;
-  padding: 0.05em 0.15em;
-  color: inherit;
-  box-decoration-break: clone;
-  cursor: pointer;
+.tenati-color-label {
+  font-weight: 500;
 }
 
-.tenati-root *,
-.tenati-root *::before,
-.tenati-root *::after {
-  box-sizing: border-box;
-}
-
-.tenati-icon {
-  width: 1em;
-  height: 1em;
-  display: block;
-}
-
+/* Action Bubble */
 .tenati-action-bubble {
   position: absolute;
   z-index: 2147483646;
-  top: 0;
-  left: 0;
-  padding: 0;
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.5rem;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-6px) scale(0.96);
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
 .tenati-action-bubble-visible {
@@ -203,183 +187,73 @@
 }
 
 .tenati-action-button {
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(5, 6, 10, 0.78);
-  color: rgba(245, 247, 255, 0.92);
-  font-size: 1rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  min-height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: #1a1a1f;
+  color: #f4f4f7;
+  font-size: 0.8rem;
+  font-weight: 500;
   cursor: pointer;
-  padding: 0.3rem 0.65rem;
-  backdrop-filter: blur(14px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
-  min-height: 42px;
-}
-
-.tenati-action-button .tenati-icon {
-  width: 1.05rem;
-  height: 1.05rem;
-}
-
-.tenati-action-button:focus-visible,
-.tenati-history-delete:focus-visible {
-  outline: 2px solid rgba(142, 197, 255, 0.9);
-  outline-offset: 2px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: all 0.15s ease;
 }
 
 .tenati-action-button:hover {
-  background: rgba(5, 6, 10, 0.92);
+  background: #222228;
 }
 
-.tenati-action-highlight {
-  border-color: rgba(255, 255, 255, 0.16);
+.tenati-action-button:focus-visible {
+  outline: 2px solid #7c6aff;
+  outline-offset: 2px;
 }
 
-.tenati-action-delete {
-  border-color: rgba(255, 145, 145, 0.4);
+.tenati-action-delete:hover {
+  background: rgba(255, 107, 107, 0.15);
+  color: #ff6b6b;
 }
 
-.tenati-history {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 0.35rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  backdrop-filter: blur(12px);
-}
-
-.tenati-history-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.7rem;
-  color: rgba(245, 247, 255, 0.7);
-}
-
-.tenati-history-clear {
-  background: none;
-  border: none;
-  color: rgba(245, 247, 255, 0.7);
-  font-size: 0.65rem;
-  cursor: pointer;
-  padding: 0.1rem 0.3rem;
-  border-radius: 999px;
-  transition: background 0.15s ease, color 0.15s ease;
-}
-
-.tenati-history-clear:disabled {
-  opacity: 0.4;
-  cursor: default;
-}
-
-.tenati-history-clear:not(:disabled):hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.tenati-history-list {
-  max-height: 180px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.tenati-history-item {
-  display: flex;
-  gap: 0.3rem;
-  align-items: stretch;
-}
-
-.tenati-history-item.is-active .tenati-history-select {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.tenati-history-select {
-  flex: 1;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 0.7rem;
-  padding: 0.35rem 0.45rem;
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
+/* Highlight Mark */
+.tenati-highlight {
+  border-radius: 3px;
+  padding: 0.1em 0.15em;
   color: inherit;
-  font-size: 0.68rem;
+  box-decoration-break: clone;
   cursor: pointer;
-  transition: border 0.15s ease, background 0.15s ease;
-  backdrop-filter: blur(10px);
+  transition: filter 0.15s ease;
 }
 
-.tenati-history-select:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.07);
-}
-
-.tenati-history-dot {
-  width: 18px;
-  height: 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  flex-shrink: 0;
-}
-
-.tenati-history-snippet {
-  text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.tenati-history-delete {
-  width: 34px;
-  height: 34px;
-  border-radius: 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.02);
-  color: rgba(255, 255, 255, 0.75);
-  cursor: pointer;
-  transition: border 0.15s ease, background 0.15s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(10px);
-}
-
-.tenati-history-delete .tenati-icon {
-  width: 0.95rem;
-  height: 0.95rem;
-}
-
-.tenati-history-delete:hover {
-  border-color: rgba(255, 145, 145, 0.7);
-  background: rgba(255, 76, 76, 0.08);
-}
-
-.tenati-history-empty {
-  font-size: 0.68rem;
-  color: rgba(245, 247, 255, 0.6);
-  margin: 0;
+.tenati-highlight:hover {
+  filter: brightness(0.95);
 }
 
 .tenati-highlight-flash {
-  animation: tenatiPulse 0.8s ease;
+  animation: tenatiPulse 0.6s ease;
 }
 
 @keyframes tenatiPulse {
-  0% {
-    outline: 0 solid rgba(255, 255, 255, 0);
-  }
-  50% {
-    outline: 6px solid rgba(255, 255, 255, 0.35);
-  }
-  100% {
-    outline: 0 solid rgba(255, 255, 255, 0);
-  }
+  0% { outline: 0 solid transparent; }
+  50% { outline: 4px solid rgba(124, 106, 255, 0.5); }
+  100% { outline: 0 solid transparent; }
 }
 
+/* Icon */
+.tenati-icon {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+.tenati-action-button .tenati-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Print Styles */
 @media print {
   .tenati-root,
   .tenati-panel-flyout,
@@ -390,6 +264,6 @@
   .tenati-highlight {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-    color: #050505;
+    color: #000;
   }
 }
